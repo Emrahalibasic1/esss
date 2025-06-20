@@ -1,15 +1,16 @@
 <div class="card {%NOT_ECO%}">
   <div class="card__img-container">
-    <img class="card__img" src="{%IMAGE%}" alt="{%PRODUCTNAME%}">
-    <div class="card__eco-badge">Eco-Friendly</div>
+    <img class="card__img" src="/{%IMAGE%}" alt="{%PRODUCTNAME%}">
+    <div class="card__featured-badge">Featured</div>
   </div>
   <div class="card__content">
     <h2 class="card__title">{%PRODUCTNAME%}</h2>
-    <p class="card__company">{%FROM%}</p>
-    <span class="card__savings">Saves up to {%ENERGY_SAVINGS%} energy</span>
+    <p class="card__author">By {%FROM%}</p>
+    <span class="card__savings">Potential savings: {%ENERGY_SAVINGS%}</span>
+    <p class="card__summary">{%SPECIFICATIONS%}</p>
     <div class="card__details">
-      <div class="card__price">${%PRICE%}</div>
-      <a class="card__link" href="/product?id={%ID%}">View Details</a>
+      <span class="card__reading-time">{%QUANTITY%}</span>
+      <a class="card__link" href="/product/{%SLUG%}">Read Article</a>
     </div>
   </div>
 </div>
