@@ -1,0 +1,32 @@
+<div class="card {%NOT_ECO%}">
+  <div class="card__emoji"><img class="card__img" src="{%IMAGE%}" alt="{%PRODUCTNAME%}"></div>
+  <div class="card__title-box">
+    <h2 class="card__title">{%PRODUCTNAME%}</h2>
+  </div>
+
+  <div class="card__details">
+    <div class="card__detail-box">
+      <i class="card__icon fas fa-leaf"></i>
+      <span class="card__detail card__detail--eco">Saves up to {%ENERGY_SAVINGS%} energy</span>
+    </div>
+
+    <div class="card__detail-box">
+      <i class="card__icon fas fa-building"></i>
+      <span class="card__detail">{%FROM%}</span>
+    </div>
+
+    <div class="card__detail-box">
+      <i class="card__icon fas fa-box"></i>
+      <span class="card__detail">{%QUANTITY%}</span>
+    </div>
+
+    <div class="card__detail-box">
+      <i class="card__icon fas fa-dollar-sign"></i>
+      <span class="card__detail card__detail--price">${%PRICE%}</span>
+    </div>
+  </div>
+
+  <a class="card__link" href="/product?id={%ID%}">
+    <span>Detail <i class="fas fa-arrow-right"></i></span>
+  </a>
+</div>

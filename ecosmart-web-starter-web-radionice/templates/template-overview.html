@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>EcoEnergy — Energy Efficient Products</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5rem 5rem 10rem;
+        line-height: 1.7;
+        font-family: 'Poppins', sans-serif;
+        color: #555;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+      }
+
+      h1 {
+        font-size: 6rem;
+        color: white;
+        transform: skewY(-5deg);
+        text-align: center;
+        position: relative;
+        word-spacing: 3px;
+      }
+
+      h1::before {
+        content: '';
+        display: block;
+        height: 65%;
+        width: 58%;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        opacity: 0.8;
+        z-index: -1;
+        transform: skewY(370deg) translate(-50%, -50%);
+      }
+
+      .container {
+        width: 95rem;
+        margin: 0 auto;
+      }
+
+      .cards-container {
+        margin-top: 8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 6rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card__emoji {
+        font-size: 5.5rem;
+        line-height: 1.2;
+        padding: 1.5rem 0 0.5rem;
+        text-align: center;
+      }
+
+      .card__title-box {
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        margin-right: -0.1rem;
+        padding: 1.75rem 3.75rem 1.75rem;
+      }
+
+      .card__title {
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        font-size: 1.9rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .card__details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.75rem;
+        padding: 2.5rem 3.75rem 3.75rem 3.75rem;
+      }
+
+      .card__detail-box {
+        font-size: 1.7rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .card__detail-box:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .card__detail--eco {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        background-image: linear-gradient(to right, #9be15d, #00e3ae);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .card__detail--price {
+        font-weight: 900;
+        font-size: 1.9rem;
+      }
+
+      .card__link:link,
+      .card__link:visited {
+        flex: 0 0 auto;
+        background-color: #79e17b;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 100rem;
+        transition: all 0.3s;
+      }
+
+      .card__link:hover,
+      .card__link:active {
+        background-color: #9be15d;
+      }
+
+      .card__img {
+        display: block;
+        width: 100%;
+        height: 22rem;
+        object-fit: cover;
+      }
+
+      .card__icon {
+        margin-right: 0.7rem;
+        color: #00e3ae;
+      }
+
+      .not-eco {
+        filter: grayscale(100%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>EcoEnergy</h1>
+
+      <div class="cards-container">
+        {%PRODUCT_CARDS%}
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>{%PRODUCTNAME%} — EcoSmart</title>
+
+    <style>
+      :root {
+        --primary: #10b981;
+        --primary-dark: #059669;
+        --secondary: #0ea5e9;
+        --text: #1e293b;
+        --text-light: #64748b;
+        --background: #f8fafc;
+        --card-bg: #ffffff;
+        --border: #e2e8f0;
+        --danger: #ef4444;
+        --success: #22c55e;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color: var(--text);
+        background-color: var(--background);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 2rem 0;
+      }
+
+      .header__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header__logo {
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+      }
+
+      .header__back {
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.6rem;
+        transition: opacity 0.2s ease;
+      }
+
+      .header__back:hover {
+        opacity: 0.9;
+      }
+
+      .header__back-icon {
+        margin-right: 0.8rem;
+      }
+
+      .product {
+        margin: 4rem auto;
+        max-width: 100rem;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .product__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .product__img-container {
+        position: relative;
+        height: 100%;
+        min-height: 40rem;
+      }
+
+      .product__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product__eco-badge {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: var(--success);
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: 0.8rem 1.6rem;
+        border-radius: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        box-shadow: var(--shadow);
+      }
+
+      .not-eco .product__eco-badge {
+        background: var(--text-light);
+      }
+
+      .product__content {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product__title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text);
+        line-height: 1.2;
+      }
+
+      .product__company {
+        font-size: 1.6rem;
+        color: var(--text-light);
+        margin-bottom: 2.5rem;
+      }
+
+      .product__savings {
+        display: inline-block;
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 1.6rem;
+        padding: 0.8rem 1.6rem;
+        border-radius: 0.6rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .product__description {
+        font-size: 1.6rem;
+        line-height: 1.6;
+        color: var(--text);
+        margin-bottom: 3rem;
+      }
+
+      .product__meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .product__meta-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product__meta-label {
+        font-size: 1.4rem;
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+      }
+
+      .product__meta-value {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .product__price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .product__price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .product__btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 600;
+        padding: 1.2rem 2.4rem;
+        border-radius: 0.8rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .product__btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .footer {
+        background-color: #1e293b;
+        color: white;
+        padding: 4rem 0;
+        margin-top: 6rem;
+      }
+
+      .footer__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__logo {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+
+      .footer__text {
+        font-size: 1.4rem;
+        opacity: 0.8;
+        max-width: 50rem;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 900px) {
+        .product__grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .product__img-container {
+          height: 30rem;
+        }
+        
+        .product__content {
+          padding: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .product__title {
+          font-size: 2.4rem;
+        }
+        
+        .product__meta {
+          grid-template-columns: 1fr;
+        }
+        
+        .product__price-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <a href="/" class="header__logo">EcoSmart</a>
+          <a href="/" class="header__back">
+            <span class="header__back-icon">←</span> Back to Products
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="product {%NOT_ECO%}">
+        <div class="product__grid">
+          <div class="product__img-container">
+            <img src="{%IMAGE%}" alt="{%PRODUCTNAME%}" class="product__img">
+            <div class="product__eco-badge">Eco-Friendly</div>
+          </div>
+          <div class="product__content">
+            <h1 class="product__title">{%PRODUCTNAME%}</h1>
+            <p class="product__company">{%FROM%}</p>
+            <div class="product__savings">Saves up to {%ENERGY_SAVINGS%} energy</div>
+            <p class="product__description">{%DESCRIPTION%}</p>
+            
+            <div class="product__meta">
+              <div class="product__meta-item">
+                <span class="product__meta-label">Quantity</span>
+                <span class="product__meta-value">{%QUANTITY%}</span>
+              </div>
+              <div class="product__meta-item">
+                <span class="product__meta-label">Energy Efficiency</span>
+                <span class="product__meta-value">{%SPECIFICATIONS%}</span>
+              </div>
+            </div>
+            
+            <div class="product__price-row">
+              <div class="product__price">${%PRICE%}</div>
+              <a href="#" class="product__btn">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">EcoSmart</div>
+          <p class="footer__text">Helping you make sustainable choices for a greener future. Our products are carefully selected to maximize energy efficiency and minimize environmental impact.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>EcoSmart — Energy Efficient Products</title>
+
+    <style>
+      :root {
+        --primary: #10b981;
+        --primary-dark: #059669;
+        --secondary: #0ea5e9;
+        --text: #1e293b;
+        --text-light: #64748b;
+        --background: #f8fafc;
+        --card-bg: #ffffff;
+        --border: #e2e8f0;
+        --danger: #ef4444;
+        --success: #22c55e;
+        --radius: 12px;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color: var(--text);
+        background-color: var(--background);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .header {
+        padding: 3rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        margin-bottom: 4rem;
+      }
+
+      .header__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 0;
+      }
+
+      .header__title {
+        font-size: 4.8rem;
+        font-weight: 700;
+        margin-bottom: 1.6rem;
+        letter-spacing: -0.02em;
+      }
+
+      .header__subtitle {
+        font-size: 2rem;
+        font-weight: 400;
+        max-width: 60rem;
+        opacity: 0.9;
+      }
+
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        gap: 3rem;
+        margin-bottom: 6rem;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .card__img-container {
+        position: relative;
+        height: 20rem;
+        overflow: hidden;
+      }
+
+      .card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .card__img {
+        transform: scale(1.05);
+      }
+
+      .card__eco-badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: var(--success);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .not-eco .card__eco-badge {
+        background: var(--text-light);
+      }
+
+      .card__content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card__title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text);
+      }
+
+      .card__company {
+        font-size: 1.4rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+      }
+
+      .card__savings {
+        display: inline-block;
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .card__details {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .card__price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .card__link {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: 0.8rem 1.6rem;
+        border-radius: 0.6rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+      }
+
+      .card__link:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .footer {
+        background-color: #1e293b;
+        color: white;
+        padding: 4rem 0;
+        margin-top: 6rem;
+      }
+
+      .footer__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer__logo {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+
+      .footer__text {
+        font-size: 1.4rem;
+        opacity: 0.8;
+        max-width: 50rem;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .header__title {
+          font-size: 3.6rem;
+        }
+        
+        .header__subtitle {
+          font-size: 1.8rem;
+        }
+        
+        .cards-container {
+          grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header__title {
+          font-size: 3rem;
+        }
+        
+        .header__subtitle {
+          font-size: 1.6rem;
+        }
+        
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <h1 class="header__title">EcoSmart</h1>
+          <p class="header__subtitle">Discover energy-efficient products that save money and protect our planet</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="cards-container">
+        {%PRODUCT_CARDS%}
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">EcoSmart</div>
+          <p class="footer__text">Helping you make sustainable choices for a greener future. Our products are carefully selected to maximize energy efficiency and minimize environmental impact.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
